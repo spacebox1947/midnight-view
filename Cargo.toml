@@ -1,0 +1,11 @@
+[workspace]
+resolver = "3"
+members = ["crates/midnight-app","crates/midnight-proto"]
+exclude = ["firmware/c3", "firmware/s3"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+[workspace.dependencies]
+midnight-proto = { path = "crates/midnight-proto" }
