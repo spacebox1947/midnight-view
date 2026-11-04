@@ -107,9 +107,9 @@ async fn main(spawner: Spawner) -> ! {
 #[embassy_executor::task(pool_size = 2)]
 async fn button_event(mut button: Input<'static>, event: &'static Signal<CriticalSectionRawMutex, ButtonEvent>) {
     loop {
-        button.wait_for_low().await;
+        button.wait_for_high().await;
         event.signal(ButtonEvent::Pressed);
-        Timer::after(Duration::from_millis(20)).await;
+        Timer::after(Duration::from_millis(50)).await;
     }
 }
 
